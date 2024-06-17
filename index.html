@@ -20,21 +20,26 @@ header {
   align-items: center;
   justify-content: space-between;
   position: sticky;
-  width: 98%;
+  width: 100%;
   z-index: 1000;
   top: 0;
-  right: 0;
 }
 
 .logo img {
-  height: 50px;
-  margin-left:50px;
+  height: 60px;
+  margin-left: 50px;
+}
+
+nav {
+  position: relative;
 }
 
 nav ul {
   list-style: none;
-  margin: 0;
+  margin-right: 15px;
   padding: 0;
+  display: flex;
+  align-items: center;
 }
 
 nav ul li {
@@ -51,6 +56,67 @@ nav ul li a {
 
 nav ul li a:hover {
   color: #ff0000;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px 0;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    margin-left: 20px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #fda502;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    display: none;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  nav ul li {
+    margin: 15px;
+  }
+
+  nav ul li a {
+    font-size: 18px;
+  }
+}
+
+/* Change hamburger menu icon to close icon when active */
+.hamburger.active div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active div:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active div:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /*hero*/
@@ -101,21 +167,21 @@ nav ul li a:hover {
 }
 
 /*about*/
-
 .about {
   display: flex;
   align-items: center;
-  padding: 80px 0;
+  padding: 80px 5%;
+  background-color: #f5f5f5;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .about-content {
   flex: 1;
   max-width: 600px;
-  padding-right: 50px;
-  color: #fff;
-  margin-left: 5%;
-  
-  
+  padding: 20px;
+  color: #333;
+  text-align: center;
 }
 
 .about h2 {
@@ -129,8 +195,9 @@ nav ul li a:hover {
 }
 
 .about-image {
-  max-width: 50%;
-  margin-right: 5%;
+  flex: 1;
+  max-width: 500px;
+  padding: 20px;
 }
 
 .about-image img {
@@ -139,8 +206,45 @@ nav ul li a:hover {
   border-radius: 5px;
 }
 
-.dark-theme {
-  background-color: #e29d1d;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .about {
+    flex-direction: column;
+    padding: 40px 5%;
+  }
+
+  .about h2 {
+    font-size: 28px;
+  }
+
+  .about p {
+    font-size: 16px;
+  }
+
+  .about-content,
+  .about-image {
+    max-width: 100%;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about h2 {
+    font-size: 24px;
+  }
+
+  .about p {
+    font-size: 14px;
+  }
+
+  .about {
+    padding: 20px 5%;
+  }
+
+  .about-content,
+  .about-image {
+    padding: 5px;
+  }
 }
 
 
@@ -160,11 +264,12 @@ nav ul li a:hover {
 .menu-items {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .menu-item {
   max-width: 300px;
-  margin: 0 20px;
+  margin: 20px;
   text-align: left;
 }
 
@@ -186,6 +291,46 @@ nav ul li a:hover {
   margin-bottom: 20px;
   color: #ffffff;
 }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .menu h2 {
+    font-size: 28px;
+  }
+
+  .menu-item h3 {
+    font-size: 20px;
+  }
+
+  .menu-item p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu {
+    padding: 40px 0;
+  }
+
+  .menu h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .menu-item {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .menu-item h3 {
+    font-size: 18px;
+  }
+
+  .menu-item p {
+    font-size: 14px;
+  }
+}
+
 
 /* reservations*/
 
@@ -296,6 +441,77 @@ body {
   color: #fff;
 }
 
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .reservation-form {
+    padding: 20px;
+  }
+
+  .reservation-form h2 {
+    font-size: 24px;
+  }
+
+  .reservation-form form input,
+  .reservation-form form textarea {
+    padding: 8px;
+  }
+
+  .reservation-form form button {
+    padding: 8px 16px;
+  }
+
+  .testimonials h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .testimonial p {
+    font-size: 16px;
+  }
+
+  .testimonial h4 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+
+  .reservations, .testimonials {
+    margin: 10px 0;
+  }
+
+  .reservation-form {
+    padding: 10px;
+  }
+
+  .reservation-form h2 {
+    font-size: 20px;
+  }
+
+  .reservation-form form input,
+  .reservation-form form textarea {
+    padding: 6px;
+  }
+
+  .reservation-form form button {
+    padding: 6px 12px;
+  }
+
+  .testimonials h2 {
+    font-size: 24px;
+  }
+
+  .testimonial p {
+    font-size: 14px;
+  }
+
+  .testimonial h4 {
+    font-size: 16px;
+  }
+}
 
 /* Gallery Section*/
 
@@ -329,7 +545,7 @@ body {
 /* Contact Section*/
 
 .contact {
-  background-color:#b38124;
+  background-color: #b38124;
   padding: 80px 0;
   text-align: center;
   color: #fff;
@@ -348,11 +564,12 @@ body {
 .contact-info {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   margin-bottom: 40px;
 }
 
 .info-item {
-  margin: 0 20px;
+  margin: 20px;
   text-align: center;
 }
 
@@ -388,6 +605,58 @@ body {
 
 .contact-form button:hover {
   background-color: #e60000;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .contact h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .info-item {
+    margin: 10px 0;
+  }
+
+  .info-item p {
+    font-size: 16px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 8px;
+  }
+
+  .contact-form button {
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact {
+    padding: 40px 0;
+  }
+
+  .contact h2 {
+    font-size: 24px;
+  }
+
+  .info-item i {
+    font-size: 20px;
+  }
+
+  .info-item p {
+    font-size: 14px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 6px;
+  }
+
+  .contact-form button {
+    padding: 6px 12px;
+  }
 }
 
 
@@ -442,20 +711,26 @@ body {
 </head>
 
 <body>
-	<header>
-	  <div class="logo">
-		<img src="kk.png" alt="Berger Hut Logo">
-	  </div>
-	  <nav>
-		<ul>
-		  <li><a href="#home">Home</a></li>
-		  <li><a href="#about">About</a></li>
-		  <li><a href="#menu">Menu</a></li>
-		  <li><a href="#reservations">Reservations</a></li>
-		  <li><a href="#contact">Contact</a></li>
-		</ul>
-	  </nav>
-	</header>
+  <header>
+    <div class="logo">
+      <img src="kk.png" alt="Berger Hut Logo">
+    </div>
+    <nav>
+      <div class="hamburger" id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul id="nav-ul">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#reservations">Reservations</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  
 
 <section class="hero" id="home">
   <div class="hero-content">
@@ -478,26 +753,27 @@ body {
 </section>
 
 
-<section class="menu" id="menu" >
+<section class="menu" id="menu">
   <h2>Our Menu</h2>
   <div class="menu-items">
     <div class="menu-item">
-      <img src="ff.jpg" alt="Burger 1">
+      <img src="ff.jpg" alt="Veg Makhani Burst">
       <h3>Veg Makhani Burst</h3>
       <p>A juicy beef patty topped with melted cheese, fresh lettuce, tomato, and our special sauce. Served with a side of crispy fries.</p>
     </div>
     <div class="menu-item">
-      <img src="ii.jpg" alt="Burger 2">
+      <img src="ii.jpg" alt="BS Chicken Burger">
       <h3>BS Chicken Burger</h3>
       <p>A delicious veggie patty made from a blend of fresh vegetables and spices. Topped with avocado, sprouts, and tangy mayo. Served with a side of sweet potato fries.</p>
     </div>
     <div class="menu-item">
-      <img src="er.jpg" alt="Burger 3">
+      <img src="er.jpg" alt="Spicy BS Veggie Burger">
       <h3>Spicy BS Veggie Burger</h3>
       <p>A fiery burger packed with flavor! Grilled chicken breast smothered in spicy BBQ sauce, topped with jalapenos, crispy onion rings, and chipotle mayo. Served with a side of coleslaw.</p>
     </div>
   </div>
 </section>
+
 
 <div class="container" id="reservations">
     <section class="reservations">
@@ -555,7 +831,7 @@ body {
     <div class="contact-info">
       <div class="info-item">
         <i class="fas fa-map-marker-alt"></i>
-        <p>visakhapatnam,India</p>
+        <p>Visakhapatnam, India</p>
       </div>
       <div class="info-item">
         <i class="fas fa-phone-alt"></i>
@@ -600,7 +876,13 @@ body {
   </div>
   <p class="footer-text">&copy; 2023 BiteSlice. All rights reserved.</p>
 </footer>
+<script>
+  document.getElementById('hamburger').addEventListener('click', function () {
+  this.classList.toggle('active');
+  document.getElementById('nav-ul').classList.toggle('active');
+});
 
+</script>
 
 </body>
 </html>
